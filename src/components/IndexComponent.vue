@@ -594,7 +594,7 @@ export default {
 	async created(){
 		this.loader = false
 		this.env = window.config.getEnv()
-		this.token = window.localStorage.getItem('eplanning_pokir_token')
+		this.token = window.localStorage.getItem('emusrenbang_desa_token')
 		this.role_name = window.config.getRoleName()
 		this.mediaUrl = window.config.getMediaUrl()
 		this.linkCetakUsulan = window.config.getLinkCetakUsulanPokir()
@@ -690,7 +690,7 @@ export default {
 	    	}
 	    },
 	    doLogout(){
-	    	window.localStorage.removeItem('eplanning_pokir_token')
+	    	window.localStorage.removeItem('emusrenbang_desa_token')
 	    	location='login.html'
 	    },
 	    openFileUpload(){
