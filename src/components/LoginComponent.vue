@@ -71,7 +71,7 @@ export default {
 	},
 	async created(){
 		this.loader = false
-		this.token = window.localStorage.getItem('eplanning_pokir_token')
+		this.token = window.localStorage.getItem('emusrenbang_desa_token')
 		this.role_name = window.config.getRoleName()
 		await this.authChecker()
 	},
@@ -103,7 +103,7 @@ export default {
 				else
 				{
 					this.loginSuccessStatus = 1
-					window.localStorage.setItem('eplanning_pokir_token',res.data.token)
+					window.localStorage.setItem('emusrenbang_desa_token',res.data.token)
 					location='index.html'
 				}
 				this.message = res.message
