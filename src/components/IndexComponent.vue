@@ -23,7 +23,7 @@
 				<img :src="user.avatar_url ? mediaUrl+'/'+user.avatar_url : 'assets/face1.jpg'" class="profile-picture" width="100px" height="100px" data-toggle="modal" data-target="#modalProfile">
 				<p></p>
 				<h2 class="username-label">{{kelompok.kelurahan.Nm_Kel}} - {{kelompok.kecamatan.Nm_Kec}}</h2>
-				<h4>Selamat Datang di E-Musrenbang Desa Kabupaten Asahan</h4>
+				<h4>Selamat Datang di E-Musrenbang {{kelompok.kelurahan.Kd_Kel == 1 ? 'Kelurahan' : 'Desa'}} Kabupaten Asahan</h4>
 				<h4 v-if="acara.status == 1">{{musrenbangTimer}}</h4>
 				<div class="z-desktop">
 					<a href="#" class="btn me-btn" v-if="acara.status == 0" data-toggle="modal" data-target="#modalMulaiMusrenbang" @click="showModalMulai()">Mulai Musrenbang</a>
@@ -225,8 +225,8 @@
 
 					    	<div class="form-group">
 					    		<label>Dusun/Lingkungan</label>
-					    		<select class="form-control" v-model="usulan.kd_lingkungan" @change="loadRpjmd()">
-					    			<option v-for="lingkungan in ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15']" :value="lingkungan">Dusun/Lingkungan {{lingkungan}}</option>
+					    		<select class="form-control" v-model="usulan.kd_lingkungan">
+					    			<option v-for="lingkungan in kelompok.lingkungan" :value="lingkungan.Kd_Lingkungan">{{lingkungan.Nm_Lingkungan}}</option>
 					    		</select>
 					    	</div>
 
@@ -366,8 +366,8 @@
 
 					    	<div class="form-group">
 					    		<label>Dusun/Lingkungan</label>
-					    		<select class="form-control" v-model="usulan.Kd_Lingkungan" @change="loadRpjmd()">
-					    			<option v-for="lingkungan in ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15']" :value="lingkungan">Dusun/Lingkungan {{lingkungan}}</option>
+					    		<select class="form-control" v-model="usulan.Kd_Lingkungan">
+					    			<option v-for="lingkungan in kelompok.lingkungan" :value="lingkungan.Kd_Lingkungan">{{lingkungan.Nm_Lingkungan}}</option>
 					    		</select>
 					    	</div>
 
@@ -621,7 +621,7 @@ export default {
 			else
 			{
 				this.user = await data.data	
-				this.kelompok = {kelurahan:data.kelurahan,kecamatan:data.kecamatan}
+				this.kelompok = {kelurahan:data.kelurahan,kecamatan:data.kecamatan,lingkungan:data.lingkungan}
 			}
 			return data
 		},
