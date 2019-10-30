@@ -120,7 +120,7 @@
 				   			<span style="color:red;" :class="{'d-none':!errors.Alamat}">Alamat tidak boleh kosong!</span>
 				   		</div>
 				   		<div class="form-group">
-				   			<label>Nama Kepala {{kelompok.kelurahan.Kd_Kel == 1 ? 'Lurah' : 'Desa'}}</label>
+				   			<label>Nama {{kelompok.kelurahan.Kd_Kel == 1 ? 'Lurah' : 'Kepala Desa'}}</label>
 				    		<input type="text" class="form-control" v-model="infoMusrenbang.Nama_Pejabat" :disabled="acara.status > 0">
 				    		<span style="color:red;" :class="{'d-none':!errors.Nama_Pejabat}">Nama Kepala Desa/Lurah tidak boleh kosong!</span>
 				    	</div>
