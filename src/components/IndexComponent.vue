@@ -73,7 +73,7 @@
 				    			</center>
 				    		</div>
 				    		<div class="col-sm-12 col-md-6">
-				    			<h5>Desa/Kelurahan</h5>
+				    			<h5>{{kelompok.kelurahan.Kd_Kel == 1 ? 'Kelurahan' : 'Desa'}}</h5>
 				    			<span>{{kelompok.kelurahan.Nm_Kel}}</span>
 				    			<br><br>
 
@@ -120,7 +120,7 @@
 				   			<span style="color:red;" :class="{'d-none':!errors.Alamat}">Alamat tidak boleh kosong!</span>
 				   		</div>
 				   		<div class="form-group">
-				   			<label>Nama Kepala Desa/Lurah</label>
+				   			<label>Nama Kepala {{kelompok.kelurahan.Kd_Kel == 1 ? 'Lurah' : 'Desa'}}</label>
 				    		<input type="text" class="form-control" v-model="infoMusrenbang.Nama_Pejabat" :disabled="acara.status > 0">
 				    		<span style="color:red;" :class="{'d-none':!errors.Nama_Pejabat}">Nama Kepala Desa/Lurah tidak boleh kosong!</span>
 				    	</div>
@@ -224,7 +224,7 @@
 					    	</div>
 
 					    	<div class="form-group">
-					    		<label>Dusun/Lingkungan</label>
+					    		<label>{{kelompok.kelurahan.Kd_Kel == 1 ? 'Lingkungan' : 'Dusun'}}</label>
 					    		<select class="form-control" v-model="usulan.kd_lingkungan">
 					    			<option v-for="lingkungan in kelompok.lingkungan" :value="lingkungan.Kd_Lingkungan">{{lingkungan.Nm_Lingkungan}}</option>
 					    		</select>
@@ -365,7 +365,7 @@
 					    	</div>
 
 					    	<div class="form-group">
-					    		<label>Dusun/Lingkungan</label>
+					    		<label>{{kelompok.kelurahan.Kd_Kel == 1 ? 'Lingkungan' : 'Dusun'}}</label>
 					    		<select class="form-control" v-model="usulan.Kd_Lingkungan">
 					    			<option v-for="lingkungan in kelompok.lingkungan" :value="lingkungan.Kd_Lingkungan">{{lingkungan.Nm_Lingkungan}}</option>
 					    		</select>
