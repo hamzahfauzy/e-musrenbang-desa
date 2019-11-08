@@ -148,6 +148,8 @@
 
 				    <!-- Modal body -->
 				    <div class="modal-body">
+				    	<a :href="linkCetakKamus" target="_blank" class="btn btn-warning"><i class="fa fa-print"></i> Cetak</a>
+				    	<p></p>
 				    	<div class="form-group">
 				    		<input type="text" class="form-control" placeholder="Cari.." v-model="keyword" v-on:keyup="loadKamus">
 				    	</div>
@@ -687,6 +689,7 @@ export default {
 			usulanSuccessStatus	:0,
 			usulanFailStatus	:0,
 			countUpFromTimeInterval:'',
+			linkCetakKamus:'',
 		}
 	},
 	async created(){
@@ -698,6 +701,7 @@ export default {
 		this.linkCetakUsulan = window.config.getLinkCetakUsulanPokir()
 		this.linkCetakAbsensi = window.config.getLinkCetakAbsensiPokir()
 		this.linkBeritaAcara = window.config.getLinkCetakBeritaAcaraPokir()
+		this.linkBeritaAcara = window.config.getApiUrl() + 'api/cetak-kamus';
 		await this.authChecker()
 		await this.loadAcara()
 		await this.loadBidangPembangunan()
