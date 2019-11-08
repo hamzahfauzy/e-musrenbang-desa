@@ -701,7 +701,7 @@ export default {
 		this.linkCetakUsulan = window.config.getLinkCetakUsulanPokir()
 		this.linkCetakAbsensi = window.config.getLinkCetakAbsensiPokir()
 		this.linkBeritaAcara = window.config.getLinkCetakBeritaAcaraPokir()
-		this.linkBeritaAcara = window.config.getApiUrl() + 'api/cetak-kamus';
+		this.linkCetakKamus = window.config.getApiUrl() + 'api/cetak-kamus';
 		await this.authChecker()
 		await this.loadAcara()
 		await this.loadBidangPembangunan()
