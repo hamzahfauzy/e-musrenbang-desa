@@ -627,7 +627,7 @@
 			    			<input type="text" class="form-control" v-model="acara.data.Pemateri_2">
 			    			<span style="color:red;" :class="{'d-none':!errors.Pemateri_2}">Pemateri 2 tidak boleh kosong!</span>
 			    		</div>
-data.
+
 			    		<div class="form-group">
 				    		<label>Pemateri 3</label>
 			    			<input type="text" class="form-control" v-model="acara.data.Pemateri_3">
