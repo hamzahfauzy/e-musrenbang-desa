@@ -719,7 +719,10 @@ export default {
 
 			let data = await response.json()
 			if(data.status == 'error')
+			{
+				window.localStorage.removeItem('emusrenbang_desa_token')
 				location='login.html'
+			}
 			else
 			{
 				this.user = await data.data	
