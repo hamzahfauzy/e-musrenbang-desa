@@ -812,9 +812,16 @@ export default {
 	    		return true;
 	    	}
 	    },
-	    doLogout(){
+	    async doLogout(){
 	    	window.localStorage.removeItem('emusrenbang_desa_token')
-	    	location='login.html'
+	    	let response = await fetch(window.config.getApiUrl()+'api/logout',{
+	    		method:'POST',
+	    		body:JSON.stringify({token:this.token})
+	    	})
+	    	let data = await response.json()
+	    	if(data.status == 'success')
+	    		location='login.html'
+	    	return
 	    },
 	    openFileUpload(){
 	    	document.querySelector('input[name=file_dokumen]').click()
